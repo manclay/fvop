@@ -76,15 +76,14 @@
     // https://firebase.google.com/docs/web/setup#available-libraries
 
     // Your web app's Firebase configuration
-   const firebaseConfig = {
-  apiKey: "AIzaSyAqgyfDnyVcnA9KHiP600Jx6Wb0aq3H5j4",
-  authDomain: "fichinhas-1918d.firebaseapp.com",
-  projectId: "fichinhas-1918d",
-  storageBucket: "fichinhas-1918d.appspot.com",
-  messagingSenderId: "358853416281",
-  appId: "1:358853416281:web:d88b3a18bb2c16d4f82848"
-};
-
+       rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
   </script>
